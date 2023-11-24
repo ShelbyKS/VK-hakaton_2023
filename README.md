@@ -1,0 +1,1 @@
+hakaton_vk_2023
