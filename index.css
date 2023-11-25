@@ -109,6 +109,14 @@
 
 }
 
+.emoji__star:before {
+    content: '\e905';
+}
+
+.emoji__star:hover:before {
+    color: yellow;
+}
+
 .emoji__bad:before {
     content: '\e902';
     transition: background-color 0.3s ease, color 0.3s ease;

@@ -19,8 +19,38 @@ const handleClick = (element) => {
         });
     });
 }
-
 const renderCsat = () => {
+    document.body.innerHTML = `
+    <form name="csat" class="iframe">
+        <div class="iframe__title">Насколько вы удовлетворены нашим сайтиком?</div>
+
+        <div class="emoji__bar">
+            <i class="emoji emoji__star" data-value="1"></i>
+            <i class="emoji emoji__star" data-value="2"></i>
+            <i class="emoji emoji__star" data-value="3"></i>
+            <i class="emoji emoji__star" data-value="4"></i>
+            <i class="emoji emoji__star" data-value="5"></i>
+        </div>
+
+        <button class="iframe__button" type="submit">
+            Отправить
+        </button>
+    </form>`
+
+    handleClick('.emoji')
+
+    document.querySelector('.iframe').addEventListener('submit', (event) => {
+        event.preventDefault();
+        console.log(document.querySelector('.selected').getAttribute('data-value'))
+        getAddSurvey('csat', document.querySelector('.selected').getAttribute('data-value'))
+            .then((res) => {
+                if (res.ok) {
+                    document.body.innerHTML = ``;
+                }
+            })
+    })
+}
+const renderCsi = () => {
     document.body.innerHTML = `
     <form name="csat" class="iframe">
         <div class="iframe__title">Насколько вы удовлетворены подборками фильмов?</div>
@@ -43,7 +73,7 @@ const renderCsat = () => {
     document.querySelector('.iframe').addEventListener('submit', (event) => {
         event.preventDefault();
         console.log(document.querySelector('.selected').getAttribute('data-value'))
-        getAddSurvey('csi/feed', document.querySelector('.selected').getAttribute('data-value'))
+        getAddSurvey('csi_feed', document.querySelector('.selected').getAttribute('data-value'))
             .then((res) => {
                 if (res.ok) {
                     document.body.innerHTML = ``;
@@ -52,7 +82,7 @@ const renderCsat = () => {
     })
 }
 
-const renderCsatProfile = () => {
+const renderCsiProfile = () => {
     document.body.innerHTML = `
     <form name="csat" class="iframe">
         <div class="iframe__title">Вам понятно как обновлять профиль?</div>
@@ -75,7 +105,7 @@ const renderCsatProfile = () => {
     document.querySelector('.iframe').addEventListener('submit', (event) => {
         event.preventDefault();
         console.log(document.querySelector('.selected').getAttribute('data-value'))
-        getAddSurvey('csi/profile', document.querySelector('.selected').getAttribute('data-value'))
+        getAddSurvey('csi_profile', document.querySelector('.selected').getAttribute('data-value'))
             .then((res) => {
                 if (res.ok) {
                     document.body.innerHTML = ``;
@@ -124,14 +154,18 @@ const renderNps = () => {
 document.addEventListener('DOMContentLoaded', function (e) {
     const path = window.location.pathname;
     switch (path) {
-        case '/csi/feed':
-            renderCsat();
+        case '/csi_feed':
+            renderCsi();
             break;
-        case '/csi/profile':
-            renderCsatProfile()
+        case '/csi_profile':
+            renderCsiProfile()
             break;
         case '/nps':
             renderNps();
+            break;
+
+        case '/csat':
+            renderCsat()
             break;
 
     }
