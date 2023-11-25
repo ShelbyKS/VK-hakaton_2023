@@ -14,7 +14,7 @@ app.use(express.static(path.resolve(__dirname, 'node_modules')));
 app.get(/^(?!.*\.(css|js|img|png|webp|webm|svg)).*$/, (req, res) => {
     res.sendFile(path.join(__dirname, '/bundle', 'index.html'));
 });
-const port = 4510;
+const port = 81;
 app.listen(port, () => {
     console.info(`Сервер запущен на порту ${port}`);
 });

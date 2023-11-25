@@ -1,8 +1,7 @@
-
 import './index.css';
 
 
-const API_PATH = '/api/v1';
+const API_PATH = 'localhost:81/api/v1';
 
 export const getAddSurvey = (key, value) => {
     console.log(key, value)
