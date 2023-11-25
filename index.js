@@ -1,3 +1,4 @@
+import { getAddSurvey } from './api';
 import './index.css';
 
 const handleClick = (element) => {
@@ -19,11 +20,6 @@ const handleClick = (element) => {
     });
 }
 
-
-const handleSubmit = (value) => {
-    console.log(value);
-}
-
 const renderCsat = () => {
     document.body.innerHTML = `
     <form name="csat" class="iframe">
@@ -43,6 +39,17 @@ const renderCsat = () => {
     </form>`
 
     handleClick('.emoji')
+
+    document.querySelector('.iframe').addEventListener('submit', (event) => {
+        event.preventDefault();
+        console.log(document.querySelector('.selected').getAttribute('data-value'))
+        getAddSurvey('csi/feed', document.querySelector('.selected').getAttribute('data-value'))
+            .then((res) => {
+                if (res.ok) {
+                    document.body.innerHTML = ``;
+                }
+            })
+    })
 }
 
 const renderCsatProfile = () => {
@@ -64,6 +71,17 @@ const renderCsatProfile = () => {
     </form>`
 
     handleClick('.emoji')
+
+    document.querySelector('.iframe').addEventListener('submit', (event) => {
+        event.preventDefault();
+        console.log(document.querySelector('.selected').getAttribute('data-value'))
+        getAddSurvey('csi/profile', document.querySelector('.selected').getAttribute('data-value'))
+            .then((res) => {
+                if (res.ok) {
+                    document.body.innerHTML = ``;
+                }
+            })
+    })
 }
 
 const renderNps = () => {
@@ -89,7 +107,18 @@ const renderNps = () => {
         </button>
     </form>`
 
-    handleClick('.number__item')
+    handleClick('.number__item');
+
+    document.querySelector('.iframe').addEventListener('submit', (event) => {
+        event.preventDefault();
+        console.log(document.querySelector('.selected').getAttribute('data-value'))
+        getAddSurvey('nps', document.querySelector('.selected').getAttribute('data-value'))
+            .then((res) => {
+                if (res.ok) {
+                    document.body.innerHTML = ``;
+                }
+            })
+    })
 }
 
 document.addEventListener('DOMContentLoaded', function (e) {
@@ -106,13 +135,5 @@ document.addEventListener('DOMContentLoaded', function (e) {
             break;
 
     }
-
-    document.querySelector('.iframe').addEventListener('submit', (event) => {
-        event.preventDefault();
-        console.log(document.querySelector('.selected').getAttribute('data-value'))
-
-    })
-
-
 })
 
