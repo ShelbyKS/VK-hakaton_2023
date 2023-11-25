@@ -113,8 +113,12 @@
     content: '\e905';
 }
 
+.helper {
+    color: pink;
+}
+.emoji__star.selected:before,
 .emoji__star:hover:before {
-    color: yellow;
+    color: pink;
 }
 
 .emoji__bad:before {

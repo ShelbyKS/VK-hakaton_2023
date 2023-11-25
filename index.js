@@ -37,7 +37,26 @@ const renderCsat = () => {
         </button>
     </form>`
 
-    handleClick('.emoji')
+    //handleClick('.emoji')
+
+    const emojis = document.querySelectorAll('.emoji__star');
+
+    emojis.forEach(function (emoji, index) {
+        emoji.addEventListener('click', function () {
+            const selectedValue = parseInt(emoji.getAttribute('data-value'));
+
+            emojis.forEach(function (el, elIndex) {
+                const elValue = parseInt(el.getAttribute('data-value'));
+
+                if (elIndex === index) {
+                    el.classList.add('selected');
+                } else {
+                    el.classList.remove('selected');
+                    el.classList.toggle('helper', elValue <= selectedValue);
+                }
+            });
+        });
+    });
 
     document.querySelector('.iframe').addEventListener('submit', (event) => {
         event.preventDefault();
