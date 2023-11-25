@@ -1,4 +1,4 @@
-const API_PATH = '';
+const API_PATH = '/api/v1';
 
 export const getAddSurvey = (key, value) => {
     return fetch(`${API_PATH}/survey/add`, {
