@@ -173,10 +173,10 @@ const renderNps = () => {
 document.addEventListener('DOMContentLoaded', function (e) {
     const path = window.location.pathname;
     switch (path) {
-        case '/csi_feed':
+        case '/csi/feed':
             renderCsi();
             break;
-        case '/csi_profile':
+        case '/csi/profile':
             renderCsiProfile()
             break;
         case '/nps':
