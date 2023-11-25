@@ -121,7 +121,7 @@ const renderCsiProfile = () => {
 
     handleClick('.emoji')
 
-    document.querySelector('.iframe').addEventListener('submit', (event) => {
+    document.querySelector('.iframe').addEventListener('submit', async (event) => {
         event.preventDefault();
         console.log(document.querySelector('.selected').getAttribute('data-value'))
         getAddSurvey('csi_profile', document.querySelector('.selected').getAttribute('data-value'))

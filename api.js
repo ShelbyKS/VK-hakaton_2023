@@ -1,6 +1,7 @@
 const API_PATH = '/api/v1';
 
 export const getAddSurvey = (key, value) => {
+    console.log(key, value)
     return fetch(`${API_PATH}/survey/add`, {
         method: 'POST', headers: {
             'Content-Type': 'application/json;charset=utf-8',
