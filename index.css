@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.iframe {
+    background: #fff;
+    border-radius: 1rem;
+    border: 0;
+    height: 200px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.iframe__title {
+    font-family: 'Roboto';
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.iframe__button {
+    --primary: #e50914;
+    --primary-hover: #c11119;
+    font-family: Roboto;
+    align-items: center;
+    border-radius: .25rem;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: .875rem;
+    border: 0;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1;
+    min-height: 2rem;
+    padding: .25rem 1rem;
+    text-decoration: none;
+    transition-duration: .25s;
+    transition-property: background-color, border-color;
+    transition-timing-function: cubic-bezier(.9, 0, .51, 1);
+    width: auto;
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.iframe__button:hover {
+    --primary: #e50914;
+    --primary-hover: #c11119;
+    font-family: Roboto;
+    align-items: center;
+    border-radius: .25rem;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: .875rem;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1;
+    min-height: 2rem;
+    padding: .25rem 1rem;
+    text-decoration: none;
+    transition-duration: .25s;
+    transition-property: background-color, border-color;
+    width: auto;
+    color: #fff;
+    background: var(--primary-hover);
+    transition-timing-function: cubic-bezier(.5, 0, .1, 1);
+}
+
+@font-face {
+    font-family: emoji;
+    src: url(emoji.woff);
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.emoji__bar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.emoji {
+    font-family: emoji;
+    font-size: 2rem;
+    font-style: normal;
+    color: gainsboro;
+    transition: all 0.3s ease;
+}
+
+.emoji:hover,
+.emoji.selected {
+    transform: scale(1.2);
+}
+
+
+.emoji__very-bad:before {
+    content: '\e904';
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.emoji__very-bad.selected:before,
+.emoji__very-bad:hover:before {
+    color: red;
+
+}
+
+.emoji__bad:before {
+    content: '\e902';
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.emoji__bad.selected:before,
+.emoji__bad:hover:before {
+    color: orange;
+}
+
+.emoji__normal:before {
+    content: '\e903';
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.emoji__normal.selected:before,
+.emoji__normal:hover:before {
+    color: yellow;
+}
+
+.emoji__good:before {
+    content: '\e901';
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.emoji__good.selected:before,
+.emoji__good:hover:before {
+    color: greenyellow;
+}
+
+.emoji__very-good:before {
+    content: '\e900';
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.emoji__very-good.selected:before,
+.emoji__very-good:hover:before {
+    color: green;
+}
+
+.number__bar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.number__item {
+    font-family: Roboto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
+    width: 20px;
+    height: 30px;
+    border-radius: 0.3rem;
+    transition: all .3s;
+}
+
+.number__item[data-value="1"]:hover,
+.number__item[data-value="1"].selected {
+    background-color: red;
+    color: white;
+}
+
+.number__item[data-value="2"]:hover,
+.number__item[data-value="3"]:hover,
+.number__item[data-value="4"]:hover,
+.number__item[data-value="2"].selected,
+.number__item[data-value="3"].selected,
+.number__item[data-value="4"].selected {
+    background-color: orangered;
+    color: white;
+}
+
+.number__item[data-value="5"].selected,
+.number__item[data-value="5"]:hover {
+    background-color: orange;
+    color: white;
+}
+
+.number__item[data-value="6"].selected,
+.number__item[data-value="7"].selected,
+.number__item[data-value="6"]:hover,
+.number__item[data-value="7"]:hover {
+    background-color: yellow;
+    color: white;
+}
+
+
+.number__item[data-value="8"].selected,
+.number__item[data-value="9"].selected,
+.number__item[data-value="8"]:hover,
+.number__item[data-value="9"]:hover {
+    background-color: greenyellow;
+    color: white;
+}
+
+
+.number__item[data-value="10"].selected,
+.number__item[data-value="10"]:hover {
+    background-color: green;
+    color: white;
+}
+
+.number__item.selected,
+.number__item:hover {
+    transform: scale(1.2);
+}
